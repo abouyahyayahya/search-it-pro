@@ -1,21 +1,14 @@
-# Search It (Fixed)
-نسخة مُحسَّنة من تطبيق Streamlit الذي يبحث في **OpenAlex**.
+---
 
-## التشغيل
-```bash
-pip install -r requirements.txt
-streamlit run search_it_fixed.py
-```
+## ⚠️ حقوق النشر
+Copyright (c) 2025  
+**Dr. Mahmoud Ahmed Alrefaey Hassaneen Abou Al Ameen**  
+Lecturer, Department of Educational Psychology – Faculty of Education  
+Al-Azhar University  
 
-> **مهم**: للحصول على حصص أكثر ثباتًا من OpenAlex، يُستحسن تعيين متغير البيئة `OPENALEX_MAILTO` إلى بريدك:
-```bash
-export OPENALEX_MAILTO="you@example.com"
-```
+**All Rights Reserved**  
+Unauthorized copying, distribution, modification, or use of this software, in whole or in part, is strictly prohibited without prior written consent of the copyright holder.
 
-## ما الذي تم إصلاحه؟
-- إزالة الاعتماد على ملف خارجي مفقود `searchh_complete_plus.py` واستبداله بدوال مدمجة.
-- تحمّل أفضل للأخطاء ورسائل واضحة عند فشل الطلبات.
-- تصدير Excel بمحرك احتياطي تلقائي (xlsxwriter أو openpyxl).
-- دعم `st.rerun` إن توفر لتوافق الإصدارات الحديثة من Streamlit.
-- فلترة "استثناء الكلمات" تعمل على **العنوان والملخّص** بدل العنوان فقط.
-- واجهة إجراءات بسيطة (PDF | المصدر | الاستشهادات) لكل نتيجة.
+📩 للتراخيص أو الاستخدام التجاري:  
+- Email: drmahmoud@azhar.edu.eg  
+- Phone: +20 102 016 1059 / +20 100 797 5534
