@@ -208,10 +208,13 @@ def search_bulk(
 @APP.post("/bank/reveal")
 def bank_reveal(email: str = Form(...), otp: Optional[str] = Form(None), response: Response = None):
     now = time.time()
+    # Step 1: issue OTP (placeholder - you should send via Email provider)
     if not otp:
         code = str(int(now) % 1000000).zfill(6)
         OTP_STORE[email] = {"code": code, "exp": now + 600}
+        # TODO: send email "code" to user
         return {"status":"OTP_SENT","hint":"Check your email for a 6-digit code."}
+    # Step 2: verify
     rec = OTP_STORE.get(email)
     if not rec or now > rec["exp"] or otp != rec["code"]: raise HTTPException(400, "Invalid or expired OTP")
     if not valid_iban_eg(BANK["iban"]): raise HTTPException(500, "Bank IBAN misconfigured")
@@ -232,6 +235,7 @@ def bank_reveal(email: str = Form(...), otp: Optional[str] = Form(None), respons
 async def bank_proof(file: UploadFile = File(...)):
     content = await file.read()
     if len(content) > 8_000_000: raise HTTPException(400, "File too large")
+    # TODO: store securely and link to ticket
     return {"status":"RECEIVED","filename": file.filename, "size": len(content)}
 
 # --------- Tickets: Assist (20$) & Services (50$/120$) ----------
@@ -258,6 +262,7 @@ def owner_init(email: str = Form(...)):
     if e not in OWNER_EMAILS: raise HTTPException(403, "Not allowed")
     code = str(int(time.time()) % 1000000).zfill(6)
     OTP_STORE["owner:"+e] = {"code": code, "exp": time.time() + 600}
+    # TODO: send via email
     return {"status":"OTP_SENT"}
 
 @APP.post("/owner/verify")
