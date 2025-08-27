@@ -1,4 +1,4 @@
-# app.py  (Streamlit UI)
+# search_it_pro_i18n_full.py  (Streamlit UI)
 import os, re, io, requests, pandas as pd, streamlit as st
 from ui_helpers import init_flags, detect_country, apply_paid_visibility, footer_identity, owner_badge, watermark_css
 
