@@ -1,10 +1,5 @@
-streamlit>=1.36
-requests>=2.32
-pandas>=2.2
+streamlit>=1.30
+requests>=2.31
+pandas>=2.0
 openpyxl>=3.1
-xlsxwriter>=3.2
-fastapi>=0.111
-uvicorn[standard]>=0.30
-python-multipart>=0.0.9
-itsdangerous>=2.2
-PyJWT>=2.9
+xlsxwriter>=3.1

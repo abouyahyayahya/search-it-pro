@@ -1,22 +1,21 @@
-⚠️ حقوق النشر  
-Copyright (c) 2025  
-Dr. Mahmoud Ahmed Alrefaey Hassaneen Abou Al Ameen  
-Lecturer, Department of Educational Psychology – Faculty of Education  
-Al-Azhar University  
+# Search It (Fixed)
+نسخة مُحسَّنة من تطبيق Streamlit الذي يبحث في **OpenAlex**.
 
-All Rights Reserved  
-Unauthorized copying, distribution, modification, or use of this software, in whole or in part, is strictly prohibited without prior written consent of the copyright holder.  
+## التشغيل
+```bash
+pip install -r requirements.txt
+streamlit run search_it_fixed.py
+```
 
-📩 للتراخيص أو الاستخدام التجاري:  
-Email: drmahmoud@azhar.edu.eg  
-Phone: +20 102 016 1059 / +20 100 797 5534  
+> **مهم**: للحصول على حصص أكثر ثباتًا من OpenAlex، يُستحسن تعيين متغير البيئة `OPENALEX_MAILTO` إلى بريدك:
+```bash
+export OPENALEX_MAILTO="you@example.com"
+```
 
----
-
-## 📄 Legal & Policies
-
-- 📑 [End-User License Agreement (EULA)](./EULA.md)  
-- 📃 [Terms of Use](./TERMS.md)  
-- ⚠️ [Notice](./NOTICE.txt)  
-- 🛡 [Security Policy](./SECURITY.md)  
-- 📌 [License](./LICENSE)  
+## ما الذي تم إصلاحه؟
+- إزالة الاعتماد على ملف خارجي مفقود `searchh_complete_plus.py` واستبداله بدوال مدمجة.
+- تحمّل أفضل للأخطاء ورسائل واضحة عند فشل الطلبات.
+- تصدير Excel بمحرك احتياطي تلقائي (xlsxwriter أو openpyxl).
+- دعم `st.rerun` إن توفر لتوافق الإصدارات الحديثة من Streamlit.
+- فلترة "استثناء الكلمات" تعمل على **العنوان والملخّص** بدل العنوان فقط.
+- واجهة إجراءات بسيطة (PDF | المصدر | الاستشهادات) لكل نتيجة.
