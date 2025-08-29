@@ -4,7 +4,7 @@
 ## التشغيل
 ```bash
 pip install -r requirements.txt
-streamlit run search_it_fixed.py
+streamlit run app.py
 ```
 
 > **مهم**: للحصول على حصص أكثر ثباتًا من OpenAlex، يُستحسن تعيين متغير البيئة `OPENALEX_MAILTO` إلى بريدك:
